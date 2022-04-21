@@ -1,14 +1,20 @@
-import { useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useReducer, useState } from "react";
 import "./App.css";
-import MovieCard from "./components/MovieCard";
-import MovieDetailCard from "./components/MovieDetailCard";
+import MovieDetailCard from "../components/MovieDetailsCard/MovieDetailCard";
+import Modal from "../components/Modal/Modal";
+import MovieCard from "../components/MovieCard/MovieCard";
+import movieListReducer from "../components/Reducer/movieListReducer";
+import movieContext from "../components/context/movieContext";
+
 
 function App() {
-  const uri = "https://api.tvmaze.com/shows";
 
-  let [movieItemsList, setMovieItemsList] = useState(null);
-  let [selectedMovie, setSelectedMovie] = useState(null);
-  let [searchInput, setSearchInput] = useState("");
+  const initialState = {
+    movieItemsList: null,
+    selectedMovie: null,
+  };
+
+  const uri = "https://api.tvmaze.com/shows";
 
   const fetchMoviesWithName = (uri, searchName) => {
     fetch(uri)
@@ -29,17 +35,17 @@ function App() {
           filteredMovieList = movieList.slice(0, 20).filter((movie) => {
             return movie.title.toLowerCase().includes(searchName.toLowerCase());
           });
-
-          setMovieItemsList([...filteredMovieList]);
         }
-        setMovieItemsList([...filteredMovieList]);
-        setSelectedMovie({ ...filteredMovieList[0] });
+        dispatch({type:'SHOW_MOVIES', payload: filteredMovieList});
       })
       .catch((error) => console.error("Unable to get items.", error));
   };
+  
+  const [state, dispatch] = useReducer(movieListReducer, initialState);
+
+  const [show, setShow] = useState(false);
 
   const onMovieSelect = (movie) => {
-    setSelectedMovie({ ...movie });
   };
 
   const getMoviesList = (movieItemsList) => {
@@ -52,38 +58,40 @@ function App() {
     });
   };
 
+  const onMovieAddUpdate = (movie)=>{
+    dispatch({type:'ADD_MOVIE', payload: movie});
+  }
+
   const searchBarChange = (e) => {
-    setSearchInput(e.target.value);
+    fetchMoviesWithName(uri, e.target
+      .value);
   };
 
-  useEffect(() => {
-    fetchMoviesWithName(uri, searchInput);
-  }, [searchInput]);
-
-  if (movieItemsList == null) {
+  if (state.movieItemsList == null) {;
     fetchMoviesWithName(uri, "");
   }
 
   const sortIncreasing = () => {
-    let sortedList = movieItemsList.sort((a, b) => {
+    let tempMovieList = [...state.movieItemsList];
+    let sortedMovieList = tempMovieList.sort((a, b) => {
       return a.title.toLowerCase().localeCompare(b.title.toLowerCase());
     });
-    setMovieItemsList([...sortedList]);
-  };
+    dispatch({type:'SHOW_MOVIES', payload:sortedMovieList});
+  }
 
   const sortDecreasing = () => {
-    let sortedList = movieItemsList.sort((a, b) => {
+    let tempMovieList = [...state.movieItemsList];
+    let sortedMovieList = tempMovieList.sort((a, b) => {
       return b.title.toLowerCase().localeCompare(a.title.toLowerCase());
     });
-    setMovieItemsList([...sortedList]);
-  };
+    dispatch({type:'SHOW_MOVIES', payload:sortedMovieList});
+  }
 
   return (
     <div className="App">
       <header className="grid-container-header">
         <input
           type="text"
-          value={searchInput}
           className="searchBar"
           placeholder="Search Movie"
           onChange={searchBarChange}
@@ -102,17 +110,28 @@ function App() {
             Z-A
           </button>
         </div>
+
+        <div>
+          <button onClick={() => setShow(true)}>Show Modal</button>
+          <movieContext.Provider value={onMovieAddUpdate}>
+          <Modal
+            title="Add Movie"
+            onClose={() => setShow(false)}
+            show={show}
+          ></Modal>
+          </movieContext.Provider>
+        </div>
       </header>
       <main>
         <section className="movie-main">
-          {selectedMovie == null ? null : (
-            <MovieDetailCard {...selectedMovie} />
+          {state.selectedMovie == null ? null : (
+            <MovieDetailCard {...state.selectedMovie} />
           )}
         </section>
 
         <section>
           <ul className="flex-container" id="movie-list" type="none">
-            {movieItemsList == null ? null : getMoviesList(movieItemsList)}
+            {state.movieItemsList == null ? null : getMoviesList(state.movieItemsList)}
           </ul>
         </section>
       </main>

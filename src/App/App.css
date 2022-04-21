@@ -9,7 +9,7 @@
   padding: 10px;
   align-items: center;
   justify-content: center;
-  background-color: aqua;
+  
 }
 
 .searchBar{
@@ -49,11 +49,6 @@
   grid-row: 1/2;
 }
 
-.flex-item figure img{
-  width: 300px;
-  height: 300px;
-}
-
 .flex-container-movie-main{
   display: grid;
   grid-template-columns: 400px;
@@ -61,8 +56,9 @@
   padding: 5px;
   justify-content: center;
   align-items: center;
-  background-color: rgb(125, 126, 125);
-}
+  border: 2px rgb(151, 151, 151) solid;
+  background-color: rgb(213, 213, 213);
+  }
 
 .main-img{
   width:400px; 
@@ -71,10 +67,9 @@
 }
 
 .movie-main{
-  height: 750px;
+  height: 400px;
   padding: 5px;
-  background-color: aquamarine;
-}
+  }
 
 .movie-details{
   display: grid;
@@ -87,6 +82,12 @@
   flex-direction: row;
   justify-content: center;
   flex-wrap: wrap;
+}
+
+.movie-card-img{
+  border-radius: 10px;
+  width: 300px;
+  height: 300px;
 }
 
 
