@@ -1,0 +1,93 @@
+.App{
+  background-color: aliceblue;
+}
+
+.grid-container-header{
+  display: grid;
+  grid-template-rows: 50px 50px;
+  grid-template-columns: auto;
+  padding: 10px;
+  align-items: center;
+  justify-content: center;
+  background-color: aqua;
+}
+
+.searchBar{
+  width: 400px;
+  height: 40px;
+  font-size: 20px;
+  padding-left: 10px;
+  background-color: white;
+  border: 2px gray solid;
+  border-radius: 5px;
+
+  grid-row: 1/2;
+  grid-column: 1/2;
+}
+
+.grid-container-buttons{
+  display: grid;
+  justify-content: center;
+}
+
+.sort-btn{
+  width: 100px;
+  height: 40px;
+  background-color: rgb(141, 141, 141);
+  color: white;
+  margin:5px;
+  border: 1px white solid;
+}
+
+.grid-item-inc-btn{
+  grid-column: 2/3;
+  grid-row: 1/2;
+}
+
+.grid-item-dec-btn{
+  grid-column: 3/4;
+  grid-row: 1/2;
+}
+
+.flex-item figure img{
+  width: 300px;
+  height: 300px;
+}
+
+.flex-container-movie-main{
+  display: grid;
+  grid-template-columns: 400px;
+  margin: 5px;
+  padding: 5px;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(125, 126, 125);
+}
+
+.main-img{
+  width:400px; 
+  height:400px;
+  border-radius: 10px;
+}
+
+.movie-main{
+  height: 750px;
+  padding: 5px;
+  background-color: aquamarine;
+}
+
+.movie-details{
+  display: grid;
+  grid-template-columns: 400px;
+  grid-template-rows: 20px 260px 20px;
+}
+
+.flex-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+
+
