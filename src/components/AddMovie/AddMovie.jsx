@@ -1,15 +1,21 @@
 import React, { useContext, useState } from "react";
 import Modal from "../Modal/Modal";
+import './AddMovie.css'
 
 const AddMovie = () => {
-    const [show, setShow] = useState(false);
+  const [show, setShow] = useState(false);
 
   return (
     <div>
-      <button  onClick={()=>{setShow(!show)}}>
-        Add movie
+      <button
+        className="add-movie-btn"
+        onClick={() => {
+          setShow(!show);
+        }}
+      >
+        Add movie +
       </button>
-        {show ? <Modal title="Add Movie" show={setShow}/>: null }
+      {show ? <Modal title="Add Movie" show={setShow} /> : null}
     </div>
   );
 };

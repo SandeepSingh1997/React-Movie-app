@@ -79,7 +79,7 @@ const MainPage = () => {
   return (
     <Fragment>
       {state.MOVIES_LIST == null ? null : (
-        <context.Provider value={{searchBar: onSearchInputChange, addMovie : addMovie}}>
+        <context.Provider value={{onSearchInputChange: onSearchInputChange, addMovie : addMovie}}>
           <Header onSortIncClicked = {onSortIncClicked} onSortDecClicked = {onSortDecClicked}/>
         </context.Provider>
       )}

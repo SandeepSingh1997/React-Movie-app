@@ -1,24 +1,21 @@
 import { useEffect, useReducer, useState } from "react";
-import "../../App/App.css";
 import MovieDetailCard from "../MovieDetailsCard/MovieDetailCard";
-import Modal from "../Modal/Modal";
 import MovieCard from "../MovieCard/MovieCard";
 import movieListReducer from "../Reducer/movieListReducer";
+import "./MoviePage.css";
 
 const MoviePage = (props) => {
-  
   const moviesList = props.moviesList;
 
   const initialState = {
     selectedMovie: moviesList[0],
   };
 
-  useEffect(()=>{dispatch({type:'SHOW_SELECTED_MOVIE', payload : moviesList[0]})}, [moviesList])
-
-  const [show, setShow] = useState(false);
+  useEffect(() => {
+    dispatch({ type: "SHOW_SELECTED_MOVIE", payload: moviesList[0] });
+  }, [moviesList]);
 
   const [state, dispatch] = useReducer(movieListReducer, initialState);
-
 
   const onMovieSelect = (movie) => {
     dispatch({ type: "SHOW_SELECTED_MOVIE", payload: movie });
@@ -32,22 +29,20 @@ const MoviePage = (props) => {
         </li>
       );
     });
-  };
+  }
 
   return (
-    <div className="App">
+    <div>
       <main>
-        <section className="movie-main">
-          <MovieDetailCard {...state.selectedMovie} /> 
-        </section>
-
         <section>
-          <ul className="flex-container" id="movie-list" type="none">
+          <MovieDetailCard {...state.selectedMovie} />
+        </section>
+        <section>
+          <ul className="flex-container-movies" id="movie-list" type="none">
             {getMoviesList(moviesList)}
           </ul>
         </section>
       </main>
-      <script src="script.js"></script>
     </div>
   );
 };

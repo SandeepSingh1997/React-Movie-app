@@ -1,0 +1,35 @@
+.searchBar{
+    width : 400px;
+    height: 40px;
+    border: 1px rgb(255, 255, 255) solid;
+    background-color: transparent;
+    color : white;
+    border-radius: 5px;
+    padding-left : 15px;
+    padding-right : 5px;
+    font-size: 17px;
+    margin-left : 20px;
+    outline-color: transparent;
+}
+
+.searchBar:focus{
+    width : 400px;
+    height: 40px;
+    border: 1px rgb(255, 255, 255) solid;
+    background-color: rgb(255, 255, 255);
+    color : rgb(50, 50, 50);
+    border-radius: 5px;
+    padding-left : 15px;
+    padding-right : 5px;
+    font-size: 17px;
+    margin-left : 20px;
+    outline-color: transparent;
+}
+
+.searchBar::placeholder{
+    color: white;
+}
+
+.searchBar::placeholder:hover{
+    color: rgb(50, 50, 50);
+}

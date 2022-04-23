@@ -1,0 +1,34 @@
+.flex-container-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background: rgb(255,46,87);
+    background: linear-gradient(90deg, rgba(255,46,87,1) 0%, rgba(235,75,146,1) 35%, rgba(109,16,254,1) 100%);
+    padding : 20px;
+}
+
+.sort-button{
+    color: white;
+    height: 40px;
+    width: 100px;
+    background-color: transparent;
+    border: 2px white solid;
+    margin-left: 10px;
+    border-radius: 5px;  
+}
+
+.sort-button:hover{
+    color: rgb(47, 47, 47);
+    height: 40px;
+    width: 100px;
+    background-color: white;
+    border: 1px white solid;
+    margin-left: 10px;
+    border-radius: 5px;
+}
+
+.sticky-header{
+    position: sticky;
+    top:0px;
+}
+

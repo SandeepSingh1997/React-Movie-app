@@ -1,5 +1,6 @@
 import React, { Fragment, useState, useContext } from "react";
 import context from "../context/context";
+import './SearchBar.css'
 
 const SearchBar = () => {
   const {onSearchInputChange} = useContext(context);
