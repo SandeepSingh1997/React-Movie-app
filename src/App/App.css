@@ -67,7 +67,7 @@
 }
 
 .movie-main{
-  height: 400px;
+  height: 700px;
   padding: 5px;
   }
 
@@ -90,5 +90,9 @@
   height: 300px;
 }
 
+.button-add-movie{
+  width: 70px;
+  height: 40px;
+}
 
 

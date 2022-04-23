@@ -6,7 +6,7 @@ import movieContext from "../context/movieContext";
 
 const Modal = props => {
 
-    const onMovieAddUpdate = useContext(movieContext);
+  const onMovieAddUpdate = useContext(movieContext);
 
   const [newMovie,setNewMovie] = useState({
       title:'',
@@ -61,17 +61,17 @@ const Modal = props => {
           </div>
           <div className="modal-body">
           <form className="form-body" onChange={handleChange}>
-               <label htmlFor="movieTitle">Title : </label>
-               <input type="text" name="movieTitle"></input>
+               <label htmlFor="movieTitle">Title of the movie: </label>
+               <input className="form-input" type="text" name="movieTitle"></input>
             
-               <label htmlFor="movieDesc">Description : </label>
-               <input type="text" name="movieDesc"></input>
+               <label htmlFor="movieDesc">Description of the movie: </label>
+               <input className="form-input" type="text" name="movieDesc"></input>
 
                <label htmlFor="movieSeats">No. of seats : </label>
-               <input type="number" name="movieSeats"></input>
+               <input className="form-input" type="number" name="movieSeats"></input>
 
                <label htmlFor="imageUrl">Image URL : </label>
-               <input type="text" name="imageUrl"></input>
+               <input className="form-input" type="text" name="imageUrl"></input>
            </form>
           </div>
           <div className="modal-footer">

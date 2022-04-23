@@ -1,6 +1,6 @@
 fileignoreconfig:
 - filename: package-lock.json
-  checksum: 72fac7e95883d0f5b2cc6ff2fdc2e933f97cee38366530dcb887aee88094eb7f
-- filename: src/App.js
-  checksum: 12fdf1b1180877a65af92b8f718e68fd2d6d4aea10803088c9225536a2d99de1
+  checksum: 8583b37ef06dfe53c57a9ce706b2f7f98dbcaf874d3cb97739ba5da50395d0f0
+- filename: src/components/Modal/Modal.js
+  checksum: 5d8f0b38113464c2419154d69a3858b15ed6882143d545294f426a32f7a72d4a
 version: ""
