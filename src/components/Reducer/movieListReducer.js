@@ -11,7 +11,7 @@ const movieListReducer = (state, action)=>{
         
         case 'ADD_MOVIE': 
             let movie = action.payload ;
-            return {movieItemsList : [...state.movieItemsList, movie]};
+            return { MOVIES_LIST : [...state.MOVIES_LIST], moviesListToShow : [...state.moviesListToShow, movie]};
 
         case 'SHOW_SELECTED_MOVIE':
             let selectedMovie = action.payload;

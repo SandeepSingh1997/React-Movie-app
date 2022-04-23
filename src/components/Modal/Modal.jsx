@@ -2,90 +2,76 @@ import React, { useContext, useEffect, useState } from "react";
 import ReactDOM from "react-dom";
 import { CSSTransition } from "react-transition-group";
 import "./Modal.css";
-import movieContext from "../context/movieContext";
+import context from "../context/context";
 
-const Modal = props => {
+const Modal = (props) => {
+  const { addMovie } = useContext(context);
 
-  const onMovieAddUpdate = useContext(movieContext);
+  const [newMovie, setNewMovie] = useState({
+    title: "",
+    description: "",
+    imageUrl: "",
+    seats: "",
+  });
 
-  const [newMovie,setNewMovie] = useState({
-      title:'',
-      description:'',
-      imageUrl:'',
-      seats: ''
-  })  
-
-  const closeOnEscapeKeyDown = e => {
-    if ((e.charCode || e.keyCode) === 27) {
-      props.onClose();
+  const handleChange = (event) => {
+    const field = event.target.name;
+    if (field === "movieTitle") {
+      setNewMovie({ ...newMovie, title: event.target.value });
+    } else if (field === "movieDesc") {
+      setNewMovie({ ...newMovie, description: event.target.value });
+    } else if (field === "movieSeats") {
+      setNewMovie({ ...newMovie, seats: event.target.value });
+    } else if (field === "imageUrl") {
+      setNewMovie({ ...newMovie, imageUrl: event.target.value });
     }
   };
 
-  useEffect(() => {
-    document.body.addEventListener("keydown", closeOnEscapeKeyDown);
-    return function cleanup() {
-      document.body.removeEventListener("keydown", closeOnEscapeKeyDown);
-    };
-  }, []);
-
-  const handleChange = (event) => {
-      const field = event.target.name;
-      if(field === 'movieTitle'){
-        setNewMovie({...newMovie,title: event.target.value});
-      }
-      else if(field === 'movieDesc'){
-          setNewMovie({...newMovie,description: event.target.value});
-      }
-      else if(field === 'movieSeats'){
-          setNewMovie({...newMovie,seats: event.target.value})
-      }
-      else if(field === 'imageUrl'){
-        setNewMovie({...newMovie,imageUrl: event.target.value})
-      }
-  }
-
-  const submitMovie = (e) => {
-      onMovieAddUpdate(newMovie);
-;  }
-
-  return ReactDOM.createPortal(
-    <CSSTransition
-      in={props.show}
-      unmountOnExit
-      timeout={{ enter: 0, exit: 300 }}
-    >
-      <div className="modal" onClick={props.onClose}>
-        <div className="modal-content" onClick={e => e.stopPropagation()}>
-          <div className="modal-header">
-            <h4 className="modal-title">{props.title}</h4>
-          </div>
-          <div className="modal-body">
-          <form className="form-body" onChange={handleChange}>
-               <label htmlFor="movieTitle">Title of the movie: </label>
-               <input className="form-input" type="text" name="movieTitle"></input>
-            
-               <label htmlFor="movieDesc">Description of the movie: </label>
-               <input className="form-input" type="text" name="movieDesc"></input>
-
-               <label htmlFor="movieSeats">No. of seats : </label>
-               <input className="form-input" type="number" name="movieSeats"></input>
-
-               <label htmlFor="imageUrl">Image URL : </label>
-               <input className="form-input" type="text" name="imageUrl"></input>
-           </form>
-          </div>
-          <div className="modal-footer">
-            <button onClick={props.onClose} className="button">
-              Close
-            </button>
-            <button onClick={submitMovie} className="button">
-              Add Movie
-            </button>
-          </div>
-        </div>
+  return (
+    <div className="main-container flex-container-modal">
+      <div className="flex-item-heading">
+        <h3>{props.title}</h3>
       </div>
-    </CSSTransition>,
-    document.getElementById("root")
+
+      <div className="divider"
+      ></div>
+
+      <form className="flex-container-form" onChange={handleChange}>
+        <label htmlFor="movieTitle">Title of the movie: </label>
+        <input className="input" type="text" name="movieTitle"></input>
+
+        <label htmlFor="movieDesc">Description of the movie: </label>
+        <input className="input" type="text" name="movieDesc"></input>
+
+        <label htmlFor="movieSeats">No. of seats : </label>
+        <input type="number" name="movieSeats" className="input"></input>
+
+        <label htmlFor="imageUrl">Image URL : </label>
+        <input className="input" type="text" name="imageUrl"></input>
+      </form>
+      
+      <div className="flex-item-footer"><div
+        className="divider"
+      ></div>
+        <button
+          className="button-cancel"
+          onClick={() => {
+            props.show(false);
+          }}
+        >
+          Close
+        </button>
+        <button
+          className="button-add-movie"
+          onClick={() => {
+            addMovie(newMovie);
+            props.show(false);
+          }}
+        >
+          Add Movie
+        </button>
+      </div>
+    </div>
   );
 };
 

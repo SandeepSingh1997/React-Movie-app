@@ -1,8 +1,8 @@
 import React, { Fragment, useState, useContext } from "react";
-import searchBarContext from "../context/searchBarContext";
+import context from "../context/context";
 
 const SearchBar = () => {
-  const onSearchInputChange = useContext(searchBarContext);
+  const {onSearchInputChange} = useContext(context);
 
   const [searchMovieName, setSearchMovieName] = useState('');
   

@@ -1,6 +1,4 @@
 fileignoreconfig:
-- filename: package-lock.json
-  checksum: 8583b37ef06dfe53c57a9ce706b2f7f98dbcaf874d3cb97739ba5da50395d0f0
-- filename: src/components/Modal/Modal.js
-  checksum: 5d8f0b38113464c2419154d69a3858b15ed6882143d545294f426a32f7a72d4a
+- filename: src/components/MoviePage/MoviePage.jsx
+  checksum: bcdf912b6a64578bac43cc30a0612add48827428a8f64deb8ac558af992baf5c
 version: ""

@@ -4,7 +4,7 @@ import Header from "../Header/Header";
 import Pagination from "../Pagination/Pagination";
 import Footer from "../Footer/Footer";
 import movieListReducer from "../Reducer/movieListReducer";
-import searchBarContext from "../context/searchBarContext";
+import context from "../context/context";
 
 const MainPage = () => {
   const initialState = {
@@ -61,12 +61,15 @@ const MainPage = () => {
     dispatch({type:'SHOW_MOVIES', payload: sortedMoviesList}); 
   }
 
-
   const onSortDecClicked = ()=>{
     let sortedMoviesList = [...state.moviesListToShow].sort((a,b)=>{
       return (b.title.toLowerCase().localeCompare(a.title.toLowerCase()))
     })
     dispatch({type:'SHOW_MOVIES', payload: sortedMoviesList}); 
+  }
+
+  const addMovie = (movie)=>{
+    dispatch({type:"ADD_MOVIE", payload: movie});
   }
 
   if (state.MOVIES_LIST == null) {
@@ -76,9 +79,9 @@ const MainPage = () => {
   return (
     <Fragment>
       {state.MOVIES_LIST == null ? null : (
-        <searchBarContext.Provider value={onSearchInputChange}>
+        <context.Provider value={{searchBar: onSearchInputChange, addMovie : addMovie}}>
           <Header onSortIncClicked = {onSortIncClicked} onSortDecClicked = {onSortDecClicked}/>
-        </searchBarContext.Provider>
+        </context.Provider>
       )}
 
       {state.moviesListToShow == null ? null : (

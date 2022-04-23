@@ -1,72 +1,89 @@
-.modal {
-    position: fixed;
-    left: 0;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transition: all 0.3s ease-in-out;
-    pointer-events: none;
-  }
-  
-  .modal.enter-done {
-    opacity: 1;
-    pointer-events: visible;
-  }
-  
-  .modal.exit {
-    opacity: 0;
-  }
-  
-  .modal-content {
-    width: 500px;
-    background-color: #fff;
-    transition: all 0.3s ease-in-out;
-    transform: translateY(-200px);
-  }
-  
-  .modal.enter-done .modal-content {
-    transform: translateY(0);
-  }
-  
-  .modal.exit .modal-content {
-    transform: translateY(-200px);
-  }
-  
-  .modal-header,
-  .modal-footer {
-    padding: 10px;
-  }
-  
-  .modal-title {
-    margin: 0;
-  }
-  
-  .modal-body {
-    padding: 10px;
-    border-top: 1px solid #eee;
-    border-bottom: 1px solid #eee;
-  }
+.main-container{
+  position : fixed;
+  top: 15vh;
+  left: 40vw;
+  height: auto;
+  width: 400px;
+  background-color: rgb(255, 255, 255);
+  border: 1px rgb(201, 201, 201) solid;
+  border-radius: 20px;
+  box-shadow:0px 0px 20px rgb(163, 163, 163);
+}
 
-  .form-body{
-    display: flex;
-    flex-direction: column;
-  }
+.flex-container-modal{
+  display: flex;
+  flex-direction: column;
+}
 
-  .form-input{
-    width: 300px;
-    height: 40px;
-    font-size: 20px;
-    margin: 10px;
-  }
+.flex-item-heading{
+  padding-left: 40px;
+  background-color: aliceblue;
+  border-radius: 20px 20px 0px 0px;
+}
 
-  .button{
-    width: 70px;
-    height: 40px;
-    margin : 10px;
-  }
+.flex-container-form{
+  display: flex;
+  flex-direction: column;
+  padding-top : 20px;
+  padding-left : 40px;
+}
+
+.flex-item-footer{
+  height: 60px;
+  margin-top: 15px;
+  pading-left : 20px;
+}
+
+.input{
+  width: 300px;
+  height: 35px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  padding-left:  10px;
+  font-size: 17px;
+  border: 1px rgb(130, 130, 130) solid;
   
+}
+.divider{
+  height: 1px; 
+  background-color: rgb(185, 185, 185)
+}
+
+.button-cancel{
+  width: 50%;
+  height: 60px;
+  background-color: transparent;
+  border: 0px ;
+  border-radius: 0px 0px 0px 20px;
+  font-size: medium;
+}
+
+.button-add-movie{
+  width: 50%;
+  height: 60px;
+  background-color: transparent;
+  border: 0px ;
+  border-radius: 0px 0px 20px 0px;
+  font-size: medium;
+}
+
+.button-add-movie:hover{
+  width: 50%;
+  height: 60px;
+  background-color: antiquewhite;
+  border: 0px ;
+  border-radius: 0px 0px 20px 0px;
+  font-size: medium;
+}
+
+.button-cancel:hover{
+  width: 50%;
+  height: 60px;
+  background-color: aliceblue;
+  border: 0px ;
+  border-radius: 0px 0px 0px 20px;
+  font-size: medium;
+}
+
+

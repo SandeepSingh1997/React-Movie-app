@@ -3,7 +3,6 @@ import "../../App/App.css";
 import MovieDetailCard from "../MovieDetailsCard/MovieDetailCard";
 import Modal from "../Modal/Modal";
 import MovieCard from "../MovieCard/MovieCard";
-import movieContext from "../context/movieContext";
 import movieListReducer from "../Reducer/movieListReducer";
 
 const MoviePage = (props) => {
@@ -37,20 +36,6 @@ const MoviePage = (props) => {
 
   return (
     <div className="App">
-      <header className="grid-container-header">
-        <div>
-          <button className="button-add-movie" onClick={() => setShow(true)}>
-            Add movie
-          </button>
-          {/* <movieContext.Provider value={onMovieAddUpdate}>
-              <Modal
-                title="Add Movie"
-                onClose={() => setShow(false)}
-                show={show}
-              ></Modal>
-            </movieContext.Provider> */}
-        </div>
-      </header>
       <main>
         <section className="movie-main">
           <MovieDetailCard {...state.selectedMovie} /> 
