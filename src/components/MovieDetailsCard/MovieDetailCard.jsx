@@ -8,9 +8,9 @@ const MovieDetailCard = (movie) => {
       
       <figcaption className="details-container">
         <div className="flex-container-movie-details">
-          <strong className="title">{movie.title}</strong>
-          <p><strong></strong> {movie.description}</p>
-          <strong>Seats : {movie.seats}</strong>
+          <strong className="title white-text">{movie.title}</strong>
+          <p className="white-text"> {movie.description}</p>
+          <strong className="white-text">Seats : {movie.seats}</strong>
           </div>
       </figcaption>
     </figure>

@@ -87,8 +87,8 @@ const MainPage = () => {
       {state.moviesListToShow == null ? null : (
         <MoviePage moviesList={state.moviesListToShow} />
       )}
-      {/*<Pagination />
-      <Footer /> */}
+      <Pagination />
+      <Footer /> 
     </Fragment>
   );
 };

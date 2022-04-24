@@ -1,0 +1,10 @@
+.p{
+    color : rgb(48, 48, 48);
+}
+
+.container-footer{
+    padding: 20px;
+    background: rgb(237, 237, 237);
+    height: 200px;
+    border-top: 5px rgb(250, 60, 60) solid;
+}

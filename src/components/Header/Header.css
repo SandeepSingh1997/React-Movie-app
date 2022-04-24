@@ -32,3 +32,32 @@
     top:0px;
 }
 
+.the-movie-ranch-title{
+    color: white;
+}
+
+.no-of-movies-selector{
+    color: white;
+    height: 40px;
+    width: 100px;
+    background-color: transparent;
+    border: 2px white solid;
+    border-radius: 5px;
+    outline: transparent;
+}
+
+.no-of-movies-selector:hover{
+    color: rgb(48, 48, 48);
+    height: 40px;
+    width: 100px;
+    background-color: white;
+    border: 2px white solid;
+    border-radius: 5px;
+    outline: transparent;
+}
+
+.select-movie-label{
+    font-size: 17px;
+    color: white;
+    align-self: center;
+}
