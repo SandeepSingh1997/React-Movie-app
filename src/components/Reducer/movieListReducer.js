@@ -1,5 +1,4 @@
 const movieListReducer = (state, action)=>{
-    let movieList = [];
     switch(action.type){
         case 'SAVE_AND_SHOW_ALL_MOVIES': 
             let allMoviesList = action.payload ;

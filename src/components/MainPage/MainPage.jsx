@@ -37,14 +37,24 @@ const MainPage = () => {
   const filterMovieListByName = (movieList, searchName) => {
     let filteredMovieList = [];
     if (searchName === "") {
-      filteredMovieList = movieList.slice(0, 20);
+      filteredMovieList = filterMovieListOnMoviesPerPage(movieList, movieList.length);
     } else {
-      filteredMovieList = movieList.slice(0, 20).filter((movie) => {
+      filteredMovieList = filterMovieListOnMoviesPerPage(movieList, movieList.length).filter((movie) => {
         return movie.title.toLowerCase().includes(searchName.toLowerCase());
       });
     }
     return filteredMovieList;
   };
+
+  const filterMovieListOnMoviesPerPage = (movieList, noOfMoviesPerPage=5, pageNum = 1)=>{
+    if(movieList.length >= noOfMoviesPerPage){
+      let startIdx = (pageNum-1)*(noOfMoviesPerPage);
+      let endIdx = (pageNum)*(noOfMoviesPerPage);
+      return movieList.slice(startIdx,endIdx);
+    }else{
+      return movieList;
+    }
+  }
 
   const onSearchInputChange = (searchInput) => {
     let filteredMovieList = filterMovieListByName(
@@ -72,6 +82,25 @@ const MainPage = () => {
     dispatch({type:"ADD_MOVIE", payload: movie});
   }
 
+  const onNoOfMoviesSelected = (noOfMovies)=>{
+    let moviesList = filterMovieListOnMoviesPerPage([...state.MOVIES_LIST], noOfMovies);
+    dispatch({ type: "SHOW_MOVIES", payload: moviesList });
+  }
+
+  const getTotalNoOfPages=()=>{
+    if(state.MOVIES_LIST != null){
+      return Math.floor(state.MOVIES_LIST.length / state.moviesListToShow.length);
+    }else{
+      return 0;
+    }
+  }
+
+  const onPageSelect = (pageNum)=>{
+    let noOfMoviesPerPage = state.moviesListToShow.length;
+    let moviesList = filterMovieListOnMoviesPerPage([...state.MOVIES_LIST],noOfMoviesPerPage, pageNum );
+    dispatch({type:"SHOW_MOVIES", payload: moviesList});
+  }
+
   if (state.MOVIES_LIST == null) {
     fetchAllMovies(uri);
   }
@@ -80,14 +109,15 @@ const MainPage = () => {
     <Fragment>
       {state.MOVIES_LIST == null ? null : (
         <context.Provider value={{onSearchInputChange: onSearchInputChange, addMovie : addMovie}}>
-          <Header onSortIncClicked = {onSortIncClicked} onSortDecClicked = {onSortDecClicked}/>
+          <Header onSortIncClicked = {onSortIncClicked} onSortDecClicked = {onSortDecClicked} 
+          onNoOfMoviesSelected ={onNoOfMoviesSelected} noOfAllMovies={state.MOVIES_LIST.length}/>
         </context.Provider>
       )}
 
       {state.moviesListToShow == null ? null : (
         <MoviePage moviesList={state.moviesListToShow} />
       )}
-      <Pagination />
+      <Pagination noOfPages={getTotalNoOfPages()} onPageSelect={onPageSelect}/>
       <Footer /> 
     </Fragment>
   );
