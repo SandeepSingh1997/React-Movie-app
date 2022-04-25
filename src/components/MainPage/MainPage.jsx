@@ -1,4 +1,4 @@
-import React, { Fragment, useReducer } from "react";
+import React, { Fragment, useReducer, useState } from "react";
 import MoviePage from "../MoviePage/MoviePage";
 import Header from "../Header/Header";
 import Pagination from "../Pagination/Pagination";
@@ -7,12 +7,15 @@ import movieListReducer from "../Reducer/movieListReducer";
 import context from "../context/context";
 
 const MainPage = () => {
+
   const initialState = {
     MOVIES_LIST: null,
     moviesListToShow: null,
   };
 
   const [state, dispatch] = useReducer(movieListReducer, initialState);
+
+  const [currPageNum, setCurrPageNum] = useState(0);
 
   const uri = "https://api.tvmaze.com/shows";
 
@@ -99,6 +102,7 @@ const MainPage = () => {
     let noOfMoviesPerPage = state.moviesListToShow.length;
     let moviesList = filterMovieListOnMoviesPerPage([...state.MOVIES_LIST],noOfMoviesPerPage, pageNum );
     dispatch({type:"SHOW_MOVIES", payload: moviesList});
+    setCurrPageNum(pageNum);
   }
 
   if (state.MOVIES_LIST == null) {
@@ -117,7 +121,7 @@ const MainPage = () => {
       {state.moviesListToShow == null ? null : (
         <MoviePage moviesList={state.moviesListToShow} />
       )}
-      <Pagination noOfPages={getTotalNoOfPages()} onPageSelect={onPageSelect}/>
+      <Pagination currPageNum={currPageNum} numOfPages={getTotalNoOfPages()} onPageSelect={onPageSelect}/>
       <Footer /> 
     </Fragment>
   );

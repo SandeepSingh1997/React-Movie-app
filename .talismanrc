@@ -1,4 +1,4 @@
 fileignoreconfig:
-- filename: src/components/MoviePage/MoviePage.jsx
-  checksum: bcdf912b6a64578bac43cc30a0612add48827428a8f64deb8ac558af992baf5c
+- filename: src/components/Pagination/Pagination.jsx
+  checksum: f696072e175adaf7abb8add182761b4905a02d4c59dc8585d789c00c2e16edb8
 version: ""
