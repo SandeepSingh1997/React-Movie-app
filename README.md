@@ -4,7 +4,7 @@
 1. [Project Information](#project-information)
 2. [Technologies Used](#technologies)
 3. [Installation](#installation)
-4. [Credits] (#credits)
+4. [Credits](#credits)
 
 ### Project Information
 
@@ -40,7 +40,7 @@ $ npm install react-bootstrap bootstrap
 $ npm start
 ```
 ### Credits
-Prapti M
-Samridhi Aggrawal
+* Prapti M
+* Samridhi Aggrawal
 
 

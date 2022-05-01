@@ -100,6 +100,12 @@ const MainPage = () => {
 
   const onPageSelect = (pageNum)=>{
     let noOfMoviesPerPage = state.moviesListToShow.length;
+    if(pageNum === '<'){
+      pageNum = currPageNum - 1;
+    }
+    if(pageNum === '>'){
+      pageNum = currPageNum + 1;
+    }
     let moviesList = filterMovieListOnMoviesPerPage([...state.MOVIES_LIST],noOfMoviesPerPage, pageNum );
     dispatch({type:"SHOW_MOVIES", payload: moviesList});
     setCurrPageNum(pageNum);

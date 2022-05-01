@@ -10,11 +10,11 @@ const Header = (props) => {
         <div className="flex-container-header">
           <SearchBar />
           <h2 className="the-movie-ranch-title">The Movie Ranch</h2>
-          <div>
-            <button className="sort-button" onClick={props.onSortIncClicked}>
+          <div className="sort-buttons">
+            <button className="sort-az-button" onClick={props.onSortIncClicked}>
               A-Z
             </button>
-            <button className="sort-button" onClick={props.onSortDecClicked}>
+            <button className="sort-za-button" onClick={props.onSortDecClicked}>
               Z-A
             </button>
           </div>

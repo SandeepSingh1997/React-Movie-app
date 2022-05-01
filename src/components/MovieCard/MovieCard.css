@@ -17,7 +17,7 @@
 
 .movie-card{
     background-color: rgb(249, 102, 102);
-    border: 1px rgb(200, 200, 200) solid;
+    border: 2px rgb(200, 200, 200) solid;
     border-radius: 10px;
 }
 
@@ -25,5 +25,5 @@
     background-color: rgb(249, 102, 102);
     border: 2px rgb(249, 102, 102) solid;
     border-radius: 10px;
-    box-shadow: 0px 5px 20px rgb(195, 195, 195);
+    box-shadow: 0px 5px 20px rgb(173, 173, 173);
 }
