@@ -91,7 +91,7 @@ const MainPage = () => {
   }
 
   const getTotalNoOfPages=()=>{
-    if(state.MOVIES_LIST != null){
+    if(state.MOVIES_LIST != null && state.moviesListToShow.length != 0 ){
       return Math.floor(state.MOVIES_LIST.length / state.moviesListToShow.length);
     }else{
       return 0;
@@ -111,6 +111,7 @@ const MainPage = () => {
 
   return (
     <Fragment>
+    
       {state.MOVIES_LIST == null ? null : (
         <context.Provider value={{onSearchInputChange: onSearchInputChange, addMovie : addMovie}}>
           <Header onSortIncClicked = {onSortIncClicked} onSortDecClicked = {onSortDecClicked} 
@@ -124,7 +125,7 @@ const MainPage = () => {
       <Pagination currPageNum={currPageNum} numOfPages={getTotalNoOfPages()} onPageSelect={onPageSelect}/>
       <Footer /> 
     </Fragment>
-  );
+  )
 };
 
 export default MainPage;
