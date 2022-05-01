@@ -4,11 +4,10 @@
 1. [Project Information](#project-information)
 2. [Technologies Used](#technologies)
 3. [Installation](#installation)
-4. [Collaboration](#collaboration)
 
 ### Project Information
 
-A web application created in html, css and React (JavaScript) which displays movies from tvmaze.com.
+A web application created in html, css and React (JavaScript) which displays movies from tvmaze.com API.
 ![Screenshot](MovieAppScreeshot.png)
 #### Features implemented
 1. Show movies.
@@ -28,3 +27,13 @@ A web application created in html, css and React (JavaScript) which displays mov
 * CSS3
 * Bootstrap, version 5.1.3
 * React (Javascript), version 18.0.0
+
+### Installation
+First fork this repository, then clone it on you local machine.
+```
+$ git clone https://github.com/SandeepSingh1997/React-Movie-app#project-information
+$ cd path to which the repo is cloned
+$ npm install
+$ npm install react-bootstrap bootstrap
+$ npm start
+```
