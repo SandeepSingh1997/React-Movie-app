@@ -17,7 +17,7 @@ const MainPage = () => {
 
   const [currPageNum, setCurrPageNum] = useState(0);
 
-  const uri = "https://movie-ranch-api.herokuapp.com/movies/";
+  const uri = "https://api.tvmaze.com/shows";
 
   const fetchAllMovies = (uri) => {
     fetch(uri)
@@ -25,10 +25,10 @@ const MainPage = () => {
       .then((data) => {
         let movieList = data.map((element) => {
           return {
-            title: element.title,
+            title: element.name,
             description: element.summary,
-            imageUrl: element.imageUrl,
-            seats: element.numOfSeats,
+            imageUrl: element.image.medium,
+            seats: element.weight,
           };
         });
         let allMoviesList = filterMovieListByName(movieList, "");
