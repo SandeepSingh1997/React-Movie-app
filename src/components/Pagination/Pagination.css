@@ -5,8 +5,8 @@
     margin: 20px;
 }
 .page-btn{
-    height: 50px;
-    width: 50px;
+    height: 35px;
+    width: 35px;
     font-size: medium;
     color: rgb(48, 48, 48);
     margin: 0px 10px 10px 0px;
@@ -16,8 +16,8 @@
 }
 
 .page-btn:hover{
-    height: 50px;
-    width: 50px;
+    height: 35px;
+    width: 35px;
     color: rgb(255, 255, 255);
     margin: 0px 10px 10px 0px;
     background-color: rgb(248, 54, 54);
@@ -26,8 +26,8 @@
 }
 
 .curr-page-btn{
-    height: 50px;
-    width: 50px;
+    height: 35px;
+    width: 35px;
     color: rgb(255, 255, 255);
     margin: 0px 10px 10px 0px;
     background-color: rgb(248, 54, 54);

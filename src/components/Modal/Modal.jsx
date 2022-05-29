@@ -1,6 +1,4 @@
 import React, { useContext, useEffect, useState } from "react";
-import ReactDOM from "react-dom";
-import { CSSTransition } from "react-transition-group";
 import "./Modal.css";
 import context from "../context/context";
 
@@ -28,7 +26,10 @@ const Modal = (props) => {
   };
 
   return (
+    <div>
+      <div className="opaque-black-background"></div>
     <div className="main-container flex-container-modal">
+
       <div className="flex-item-heading">
         <h3>{props.title}</h3>
       </div>
@@ -70,6 +71,7 @@ const Modal = (props) => {
         >
           Add Movie
         </button>
+      </div>
       </div>
     </div>
   );

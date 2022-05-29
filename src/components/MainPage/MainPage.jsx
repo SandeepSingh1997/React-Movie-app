@@ -17,7 +17,7 @@ const MainPage = () => {
 
   const [currPageNum, setCurrPageNum] = useState(0);
 
-  const uri = "https://api.tvmaze.com/shows";
+  const uri = "https://movie-ranch-api.herokuapp.com/movies/";
 
   const fetchAllMovies = (uri) => {
     fetch(uri)
@@ -25,10 +25,10 @@ const MainPage = () => {
       .then((data) => {
         let movieList = data.map((element) => {
           return {
-            title: element.name,
+            title: element.title,
             description: element.summary,
-            imageUrl: element.image.medium,
-            seats: element.weight,
+            imageUrl: element.imageUrl,
+            seats: element.numOfSeats,
           };
         });
         let allMoviesList = filterMovieListByName(movieList, "");
@@ -91,7 +91,7 @@ const MainPage = () => {
   }
 
   const getTotalNoOfPages=()=>{
-    if(state.MOVIES_LIST != null && state.moviesListToShow.length != 0 ){
+    if(state.MOVIES_LIST !== null && state.moviesListToShow.length !== 0 ){
       return Math.floor(state.MOVIES_LIST.length / state.moviesListToShow.length);
     }else{
       return 0;
@@ -119,9 +119,11 @@ const MainPage = () => {
     <Fragment>
     
       {state.MOVIES_LIST == null ? null : (
-        <context.Provider value={{onSearchInputChange: onSearchInputChange, addMovie : addMovie}}>
-          <Header onSortIncClicked = {onSortIncClicked} onSortDecClicked = {onSortDecClicked} 
-          onNoOfMoviesSelected ={onNoOfMoviesSelected} noOfAllMovies={state.MOVIES_LIST.length}/>
+        <context.Provider value={{onSearchInputChange: onSearchInputChange, addMovie : addMovie,
+         onSortIncClicked:onSortIncClicked, onSortDecClicked:onSortDecClicked,
+         onNoOfMoviesSelected:onNoOfMoviesSelected,
+         noOfAllMovies:state.MOVIES_LIST.length}}>
+          <Header/>
         </context.Provider>
       )}
 

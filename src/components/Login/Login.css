@@ -1,0 +1,80 @@
+.flex-container{
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top:25vh;
+    right: 8vw;
+    background-color: rgb(248, 248, 248);
+    width: 300px;
+    border: 1px rgb(191, 191, 191) solid;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.opaque-black-background{
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    opacity: 0.5;
+}
+
+.login{
+    align-self: center;
+}
+
+.form-flex-container{
+    display: flex;
+    flex-direction: column;
+}
+
+.input{
+    height: 40px;
+    width: 200px;
+    align-self: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    font-size: medium;
+}
+
+.login-btn{
+    height: 40px;
+    width: 100px;
+    background-color: transparent;
+    border: 1px rgb(59, 59, 59) solid;
+    color:rgb(59, 59, 59);
+    align-self: center;
+    margin-top : 10px;
+}
+
+.login-btn:hover{
+    height: 40px;
+    width: 100px;
+    background-color: rgb(255, 69, 69);
+    border: 1px rgb(255, 69, 69) solid;
+    color:rgb(255, 255, 255);
+    align-self: center;
+    margin-top : 10px;
+}
+
+.close-btn{
+    height: 40px;
+    width: 100px;
+    background-color: transparent;
+    border: 1px rgb(59, 59, 59) solid;
+    color:rgb(59, 59, 59);
+    align-self: center;
+    margin-top: 5px;
+}
+
+.close-btn:hover{
+    height: 40px;
+    width: 100px;
+    background-color: rgb(71, 71, 71);
+    border: 1px rgb(71, 71, 71) solid;
+    color:rgb(255, 255, 255);
+    align-self: center;
+    margin-top: 5px;
+}

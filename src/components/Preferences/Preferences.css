@@ -1,0 +1,73 @@
+.preferences-flex-container {
+  display: flex;
+  position: fixed;
+  flex-direction: column;
+  background-color: rgba(255, 255, 255);
+  align-items: center;
+  padding: 20px;
+  border: 1px rgb(200, 200, 200) solid;
+  border-radius: 5px;
+}
+
+.sort-az-button {
+  color: rgb(42, 42, 42);
+  height: 30px;
+  width: 80px;
+  background-color: transparent;
+  border: none;
+  border-top: 2px rgb(42, 42, 42) solid;
+  border-left: 2px rgb(42, 42, 42) solid;
+  border-bottom: 2px rgb(42, 42, 42) solid;
+}
+
+.sort-az-button:hover {
+  color: rgb(255, 255, 255);
+  height: 30px;
+  width: 80px;
+  background-color: rgb(42, 42, 42);
+  border: none;
+  border-top: 2px rgb(42, 42, 42) solid;
+  border-left: 2px rgb(42, 42, 42) solid;
+  border-bottom: 2px rgb(42, 42, 42) solid;
+}
+
+.sort-za-button {
+  color: rgb(42, 42, 42);
+  height: 30px;
+  width: 80px;
+  background-color: transparent;
+  border: 2px rgb(42, 42, 42) solid;
+}
+
+.sort-za-button:hover {
+  color: rgb(255, 255, 255);
+  height: 30px;
+  width: 80px;
+  background-color: rgb(42, 42, 42);
+  border: 2px rgb(42, 42, 42) solid;
+}
+.no-of-movies-selector {
+  color: rgb(42, 42, 42);
+  height: 40px;
+  width: 80px;
+  margin-left: 20px;
+  background-color: transparent;
+  border: 2px rgb(42, 42, 42) solid;
+  border-radius: 5px;
+  outline: transparent;
+}
+
+.no-of-movies-selector:hover {
+  color: rgb(255, 255, 255);
+  height: 40px;
+  width: 80px;
+  background-color: rgb(42, 42, 42);
+  border: 2px rgb(42, 42, 42) solid;
+  border-radius: 5px;
+  outline: transparent;
+}
+
+.select-movie-label {
+  font-size: 16px;
+  color: rgb(42, 42, 42);
+}

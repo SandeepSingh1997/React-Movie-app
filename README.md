@@ -13,13 +13,14 @@ A web application created in html, css and React (JavaScript) which displays mov
 #### Features implemented
 1. Show movies.
 2. Show details of a movie.
-3. Search for movies using title(has a bug).
+3. Search for movies using title.
 4. Sort movies in ascending or descending order alphabetically.
 5. Show movies per page.
 6. Add a new movie.
 #### Features to be implemented.
 1. User login and signin.
 2. Watch Trailer Feature.
+3. Add more pages using react router like a page for shows.
 
 ### Technologies Used
 * HTML5
@@ -40,7 +41,7 @@ $ npm install react-bootstrap bootstrap
 $ npm start
 ```
 ### Credits
-* Prapti M
-* Samridhi Aggrawal
+* Prapti M (github id)
+* Samridhi Aggrawal (github id)
 
 

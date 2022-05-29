@@ -1,40 +1,43 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 import SearchBar from "../SearchBar/SearchBar";
 import AddMovie from "../AddMovie/AddMovie";
 import "./Header.css";
+import Preferences from "../Preferences/Preferences";
+import Login from "../Login/Login";
 
 const Header = (props) => {
+  let [showLogin, setShowLogin] = useState(false);
   return (
     <Fragment>
-      <div className="sticky-header">
-        <div className="flex-container-header">
-          <SearchBar />
-          <h2 className="the-movie-ranch-title">The Movie Ranch</h2>
-          <div className="sort-buttons">
-            <button className="sort-az-button" onClick={props.onSortIncClicked}>
-              A-Z
-            </button>
-            <button className="sort-za-button" onClick={props.onSortDecClicked}>
-              Z-A
-            </button>
+        <div className="header sticky flex-col">
+          
+          <div className="flex-row">
+        
+            <div className="dropdown">
+                <button className="btn">Filter</button>
+              <div className="dropdown-content flex-col">
+                <Preferences/>
+              </div>
+            </div>
+            
+            <h2 className="the-movie-ranch-title">TheMovieRanch</h2>
+
           </div>
-          <label htmlFor="noOfMovies" className="select-movie-label">
-            Movies on Page :
-          </label>
-          <select
-            className="no-of-movies-selector"
-            name="noOfMovies"
-            placeholder="Movies on Page"
-            onChange={(event)=>{props.onNoOfMoviesSelected(event.target.value)}}
-          > <option value={props.noOfAllMovies}>All </option>
-            <option value="5">5</option>
-            <option value="10">10</option>
-            <option value="20">20</option>
-            <option value="40">40</option>
-          </select>
-          <AddMovie />
+
+          <div className="flex-row">
+      
+            <SearchBar />
+
+            <AddMovie />
+
+            <button className="btn" onClick={() => setShowLogin(!showLogin)}>
+              login
+            </button>
+
+            {showLogin ? <Login setShowLogin={setShowLogin}/> : null}
+
+          </div>
         </div>
-      </div>
     </Fragment>
   );
 };

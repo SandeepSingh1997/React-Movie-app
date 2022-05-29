@@ -13,7 +13,7 @@ const AddMovie = () => {
           setShow(!show);
         }}
       >
-        Add movie +
+        +
       </button>
       {show ? <Modal title="Add Movie" show={setShow} /> : null}
     </div>
